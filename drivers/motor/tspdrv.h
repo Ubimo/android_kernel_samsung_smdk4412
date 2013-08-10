@@ -105,6 +105,3 @@ typedef struct {
 
 
 int regulator_hapticmotor_enabled;
-
-
-#endif  /* _TSPDRV_H */
