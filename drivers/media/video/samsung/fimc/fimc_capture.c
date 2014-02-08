@@ -1435,7 +1435,7 @@ int fimc_s_fmt_vid_private(struct file *file, void *fh, struct v4l2_format *f)
 		mbus_fmt = &ctrl->cap->mbus_fmt;
 		mbus_fmt->width = pix->width;
 		mbus_fmt->height = pix->height;
-#if defined(CONFIG_MACH_P4NOTE) || defined(CONFIG_MACH_KONA)
+#ifdef CONFIG_MACH_P4NOTE
 /* Unfortuntely, we have to use pix->field (not pix->priv) since
  * pix.field is already used in the below else condtion statement
  * (in case that sub-devices are not registered)
@@ -1927,8 +1927,6 @@ int fimc_reqbufs_capture_mmap(void *fh, struct v4l2_requestbuffers *b)
 	case V4L2_PIX_FMT_YVYU:		/* fall through */
 	case V4L2_PIX_FMT_NV16:		/* fall through */
 	case V4L2_PIX_FMT_NV61:		/* fall through */
-		fimc_err("%s : w %d h %d \n",__func__,
-				cap->fmt.width, cap->fmt.height);
 		fimc_info1("%s : 1plane\n", __func__);
 		ret = fimc_alloc_buffers(ctrl, 1,
 			cap->fmt.width * cap->fmt.height, SZ_4K, bpp, cap->pktdata_enable, cap->pktdata_size);
@@ -1942,7 +1940,6 @@ int fimc_reqbufs_capture_mmap(void *fh, struct v4l2_requestbuffers *b)
 		break;
 
 	case V4L2_PIX_FMT_NV12:
-	        
 		fimc_info1("%s : 2plane for NV12\n", __func__);
 		ret = fimc_alloc_buffers(ctrl, 2,
 			cap->fmt.width * cap->fmt.height, SZ_64K, bpp, cap->pktdata_enable, cap->pktdata_size);
@@ -2251,7 +2248,7 @@ int fimc_s_ctrl_capture(void *fh, struct v4l2_control *c)
 			clk_disable(ctrl->cam->clk);
 			fimc->mclk_status = CAM_MCLK_OFF;
 			ctrl->cam->initialized = 0;
-#if defined(CONFIG_MACH_P4NOTE) || defined(CONFIG_MACH_KONA)
+#ifdef CONFIG_MACH_P4NOTE
 	/* 100ms: increase delay.
 	 * There are cases that sensor doesn't get revived
 	 * inspite of doing power reset.*/
@@ -2726,7 +2723,7 @@ int fimc_streamon_capture(void *fh)
 				}
 			}
 
-#if defined(CONFIG_MACH_P4NOTE) || defined(CONFIG_MACH_KONA)
+#ifdef CONFIG_MACH_P4NOTE
 #ifdef CONFIG_VIDEO_IMPROVE_STREAMOFF
 			v4l2_subdev_call(cam->sd, video, s_stream,
 				STREAM_MODE_WAIT_OFF);
@@ -2756,7 +2753,7 @@ int fimc_streamon_capture(void *fh)
 					cap->fmt.pixelformat);
 				}
 			}
-#if defined(CONFIG_MACH_P4NOTE) || defined(CONFIG_MACH_KONA)
+#ifdef CONFIG_MACH_P4NOTE
 			if (1) {
 #else
 			if (cap->fmt.priv != V4L2_PIX_FMT_MODE_CAPTURE) {
