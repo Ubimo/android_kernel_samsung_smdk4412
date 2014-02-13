@@ -50,15 +50,11 @@
 
 #include <asm/unaligned.h>
 
-<<<<<<< HEAD
-#include "../keyboard/cypress/cypress-touchkey.h"
 
 #ifdef CONFIG_TOUCH_WAKE
 #include <linux/touch_wake.h>
 #endif
 
-=======
->>>>>>> a64df5b... cypress-touchkey: remove backlight timeout feature
 #define MAX_FINGERS		10
 #define MAX_WIDTH		30
 #define MAX_PRESSURE		255
