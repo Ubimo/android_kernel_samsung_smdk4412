@@ -136,7 +136,7 @@ struct s3cfb_extdsp_lcd {
 #include <mach/midas-tsp.h>
 #include <mach/regs-clock.h>
 
-#include <mach/board-lcd.h>
+#include <mach/midas-lcd.h>
 #include <mach/midas-sound.h>
 #if defined(CONFIG_SEC_DEV_JACK)
 #include <mach/p4note-jack.h>
@@ -1592,8 +1592,8 @@ struct acc_con_platform_data acc_con_pdata = {
 	.get_dock_state = smdk_get_dock_state,
 #ifdef CONFIG_SEC_KEYBOARD_DOCK
 	.check_keyboard = check_sec_keyboard_dock,
-	.register_cb = sec_30pin_register_cb,
 #endif
+	.register_cb = sec_30pin_register_cb,
 	.accessory_irq_gpio = GPIO_ACCESSORY_INT,
 	.dock_irq_gpio = GPIO_DOCK_INT,
 #if defined(CONFIG_SAMSUNG_MHL_9290)

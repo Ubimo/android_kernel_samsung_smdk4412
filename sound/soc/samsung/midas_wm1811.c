@@ -1288,7 +1288,7 @@ static const struct snd_kcontrol_new midas_controls[] = {
 
 	SOC_ENUM_EXT("LineoutSwitch Mode", lineout_mode_enum[0],
 		get_lineout_mode, set_lineout_mode),
-
+		
 	SOC_ENUM_EXT("AIF2 digital mute", switch_mode_enum[0],
 		get_aif2_mute_status, set_aif2_mute_status),
 
@@ -1696,7 +1696,7 @@ static int midas_wm1811_init_paiftx(struct snd_soc_pcm_runtime *rtd)
 			dev_attr_reselect_jack.attr.name);
 
 #endif /* CONFIG_SEC_DEV_JACK */
-
+		
 #ifdef CONFIG_USE_ADC_DET
 	pr_info("%s: register adc client\n", __func__);
 	wm1811->padc = s3c_adc_register(midas_snd_device, NULL, NULL, 0);

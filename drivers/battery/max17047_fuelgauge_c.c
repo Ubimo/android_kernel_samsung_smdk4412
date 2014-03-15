@@ -952,7 +952,7 @@ void fg_low_batt_compensation(struct i2c_client *client, u32 level)
 	read_val = fg_read_register(client, MAX17047_REG_FULLCAP);
 	if (read_val < 0)
 		return;
-
+	
 #if defined(CONFIG_MACH_KONA)
 	if (read_val > 2) { /* 3% compensation */
 		/* RemCapREP (05h) = FullCap(10h) x 0.0301 */
@@ -981,7 +981,7 @@ void fg_low_batt_compensation(struct i2c_client *client, u32 level)
 		/* RemCapREP (05h) = FullCap(10h) x 0.0090 */
 		temp = read_val * (level*90) / 10000;
 #endif
-
+	
 	fg_write_register(client, MAX17047_REG_REMCAP_REP, (u16)temp);
 }
 
@@ -1257,10 +1257,10 @@ static int get_fuelgauge_soc(struct i2c_client *client)
 return_soc:
 
 #if defined(CONFIG_MACH_KONA)
-	if (fg_data->full_soc <= 0)
+  	if (fg_data->full_soc <= 0)
 	fg_data->full_soc = FULL_SOC_DEFAULT;
-
-	fg_soc =(min((fg_soc * 10000 / (fg_data->full_soc)), 1000));
+	
+	fg_soc =(min((fg_soc * 10000 / (fg_data->full_soc)), 1000));	
 #endif
 
 	pr_info("%s: soc(%d), low_batt_alarm(%d)\n",

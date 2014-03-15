@@ -1091,9 +1091,9 @@ config MACH_T0
 	select S3C_DEV_I2C5
 
 config MACH_KONA
-	bool "KONA Note8 board"
-	select S3C_DEV_I2C4
-	select S3C_DEV_I2C5
+        bool "KONA Note8 board"
+        select S3C_DEV_I2C4
+        select S3C_DEV_I2C5
 
 config MACH_IRON
 	bool "Iron board"
@@ -1135,12 +1135,12 @@ config T0_04_BD
 	default n
 
 config KONA_00_BD
-	bool "KONA note8 rev00 common Board"
-	default n
+        bool "KONA note8 rev00 common Board"
+        default n
 
 config KONA_01_BD
-	bool "KONA note8 rev01 common Board"
-	default n
+        bool "KONA note8 rev01 common Board"
+        default n
 
 config IRON_BD
 	bool "Iron common Board"
@@ -1166,7 +1166,7 @@ config JACK_GROUND_DET
 	bool "Ear Ground Detection Enable"
 
 config USE_ADC_DET
-	bool "Jack Detection with ADC IC"
+        bool "Jack Detection with ADC IC"
 
 config SAMSUNG_ANALOG_UART_SWITCH
 	int "SAMSUNG analog switch for UART"
@@ -1617,12 +1617,12 @@ config EHCI_IRQ_DISTRIBUTION
 
 if (LINK_DEVICE_USB || LINK_DEVICE_HSIC)
 config EHCI_MODEM_PORTNUM
-	int "EHCI port number of modem connection"
-	default 2
+        int "EHCI port number of modem connection"
+        default 2
 config CMC_MODEM_HSIC_SYSREV
-	int "System revision number which CMC modem support HSIC i/f"
-	depends on LTE_MODEM_CMC221
-	default 9
+        int "System revision number which CMC modem support HSIC i/f"
+        depends on LTE_MODEM_CMC221
+        default 9
 endif
 
 if SEC_MODEM
@@ -1752,6 +1752,11 @@ endchoice
 
 endif
 
+comment "Connectivity Feature"
+config GPS_BRCM_475X
+	bool "BRCM_475X_CHIPSET"
+	default n
+
 if BT
 config BT_CSR8811
 	bool "Enable CSR8811 driver"
@@ -1846,10 +1851,10 @@ config CORESIGHT_ETM_DEFAULT_ENABLE
 
 
 config MACH_KONA_SENSOR
-	bool "KONA Sensor Enable"
-	help
-	  Support sensors of KONA boards
+        bool "KONA Sensor Enable"
+        help
+          Support sensors of KONA boards
 
-	  BMA254 / BOSCH
-	  YAS532 / YAMAHA
-	  GP2A030A / SHARP
+          BMA254 / BOSCH
+          YAS532 / YAMAHA
+          GP2A030A / SHARP

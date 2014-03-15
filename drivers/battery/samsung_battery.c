@@ -2011,9 +2011,9 @@ static int samsung_battery_set_property(struct power_supply *ps,
 		case POWER_SUPPLY_PROP_COMPENSATION_3:
 			info->is_comp_3 = val->intval;
 			break;
-		case POWER_SUPPLY_PROP_COMPENSATION_1:
+		case POWER_SUPPLY_PROP_COMPENSATION_1:	
 			info->is_comp_1 = val->intval;
-			break;
+			break;			
 #endif
 		default:
 			return -EINVAL;

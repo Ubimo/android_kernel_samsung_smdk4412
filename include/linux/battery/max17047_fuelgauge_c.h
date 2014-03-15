@@ -106,3 +106,4 @@ struct max17047_platform_data {
 };
 
 #endif
+

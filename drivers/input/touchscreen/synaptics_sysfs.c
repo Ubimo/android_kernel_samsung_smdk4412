@@ -72,7 +72,7 @@ static int synaptics_ts_load_fw(struct synaptics_drv_data *data)
 		nread = vfs_read(fp, (char __user *)fw_data,
 			fw_size, &fp->f_pos);
 #if defined(CONFIG_MACH_KONA)
-	printk(KERN_DEBUG "[TSP] start, file path %s, size %u Bytes\n",
+        printk(KERN_DEBUG "[TSP] start, file path %s, size %u Bytes\n",
 		       SYNAPTICS_FW2, fw_size);
 #else
 		printk(KERN_DEBUG "[TSP] start, file path %s, size %u Bytes\n",
@@ -415,7 +415,7 @@ static void check_delta_cap(struct synaptics_drv_data *data)
 	u16 temp = 0;
 	u16 length;
 	u8 escape_rx_line;
-	u8 *btn_data;
+    u8 *btn_data;
 	int start_button_data;
 
 	if (data->pdata->support_extend_button)
@@ -425,7 +425,7 @@ static void check_delta_cap(struct synaptics_drv_data *data)
 
 	length = escape_rx_line * 2;
 
-	btn_data = kzalloc(length, GFP_KERNEL);
+    btn_data = kzalloc(length, GFP_KERNEL);
 
 	data->refer_min = 0xffff;
 	data->refer_max = 0x0;
@@ -485,7 +485,7 @@ static void check_diagnostics_mode(struct synaptics_drv_data *data)
 		check_delta_cap(data);
 		break;
 #endif
-
+		
 	default:
 		break;
 	}

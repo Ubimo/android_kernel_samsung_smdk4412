@@ -73,7 +73,7 @@ int wacom_i2c_flash_cmd(struct wacom_i2c *wac_i2c)
 
 	int ret, len, i;
 	u8 buf[10], flashq;
-
+	
 #if defined(CONFIG_MACH_KONA)
 	buf[0] = 0x0d;
 	buf[1] = FLASH_START0;
@@ -195,8 +195,8 @@ int wacom_i2c_flash_enter(struct wacom_i2c *wac_i2c)
 {
 	if (wacom_i2c_flash_query(wac_i2c, FLASH_QUERY, FLASH_ACK) == -1)
 		return ERR_NOT_FLASH;
-
-	wac_i2c->boot_mode = true;
+	
+        wac_i2c->boot_mode = true;
 
 	return 0;
 }

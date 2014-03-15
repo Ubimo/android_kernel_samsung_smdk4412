@@ -253,3 +253,4 @@ int kona_sensor_init(void)
 
 	return ret;
 }
+

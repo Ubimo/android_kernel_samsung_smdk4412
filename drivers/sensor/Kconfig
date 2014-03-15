@@ -133,7 +133,7 @@ config SENSORS_K3DH
 config SENSOR_K3DH_INPUTDEV
 	bool "K3DH acceleration sensor input dev support"
 	depends on SENSORS_K3DH
-	default n
+        default n
 	help
 	  Say Y here if you use K3DH.
 	  This option enables accelerometer sensor using
@@ -179,18 +179,18 @@ config SENSORS_YAS_ORI
 	  This allows control of supported Magnetic Sensor.
 
 config INPUT_YAS_MAGNETOMETER_POSITION
-	int "YAS Geomagnetic Sensor Mounting Position on Board"
-	depends on I2C
-	default "0"
-	help
-	  Chip mounting position (pin 1).
-		0: top, upper-left
-		1: top, upper-right
-		2: top, lower-right
-		3: top, lower-left
-		4: bottom, upper-left
-		5: bottom, upper-right
-		6: bottom, lower-right
-		7: bottom, lower-left
+         int "YAS Geomagnetic Sensor Mounting Position on Board"
+         depends on I2C
+         default "0"
+         help
+           Chip mounting position (pin 1).
+              0: top, upper-left
+              1: top, upper-right
+              2: top, lower-right
+              3: top, lower-left
+              4: bottom, upper-left
+              5: bottom, upper-right
+              6: bottom, lower-right
+              7: bottom, lower-left
 
 endif

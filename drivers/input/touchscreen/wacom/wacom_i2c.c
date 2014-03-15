@@ -244,7 +244,7 @@ int wacom_i2c_firm_update(struct wacom_i2c *wac_i2c)
 	int ret;
 	int retry = 3;
 	const struct firmware *firm_data = NULL;
-
+	
 #if defined(CONFIG_MACH_KONA)
 	u8 *flash_data;
 
@@ -292,7 +292,7 @@ int wacom_i2c_firm_update(struct wacom_i2c *wac_i2c)
 	}
 
 	firmware_updating_state = false;
-
+	
 #if defined(CONFIG_MACH_KONA)
 	kfree(flash_data);
 #endif
@@ -572,7 +572,7 @@ static void wacom_i2c_set_input_values(struct i2c_client *client,
 
 	/*  __set_bit(BTN_STYLUS2, input_dev->keybit); */
 	/*  __set_bit(ABS_MISC, input_dev->absbit); */
-
+	
 	/*softkey*/
 #ifdef WACOM_USE_SOFTKEY
 	__set_bit(EV_LED, input_dev->evbit);

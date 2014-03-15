@@ -133,3 +133,4 @@ void ielcd_init_global(struct s3cfb_global *ctrl)
 
 	s3cfb_window_on(ielcd_fbdev, 0);
 }
+

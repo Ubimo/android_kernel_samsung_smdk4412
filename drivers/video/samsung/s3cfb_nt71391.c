@@ -168,7 +168,6 @@ read_retry:
 	return ret;
 }
 #endif
-
 static ssize_t lcdtype_show(struct device *dev, struct device_attribute *attr, char *buf)
 {
 	char temp[15];
@@ -205,7 +204,6 @@ static int nt71391_power_on(struct lcd_info *lcd)
 	dev_info(&lcd->ld->dev, "%s\n", __func__);
 
 	msleep(120); /* power on 50ms, i2c 70ms */
-
 	nt71391_write(lcd, NT71391_UNLOCK_PAGE0, NT71391_WRITE);
 	nt71391_write(lcd, NT71391_FREQ_SETTING, NT71391_WRITE);
 	nt71391_write(lcd, NULL, NT71391_LOCK_CMD2);
@@ -343,7 +341,6 @@ static int __init nt71391_probe(struct device *dev)
 	}
 
 	lcd->dev = dev;
-
 	lcd->connected = 1;
 	lcd->dsim = (struct dsim_global *)dev_get_drvdata(dev->parent);
 	lcd->power = FB_BLANK_UNBLANK;
