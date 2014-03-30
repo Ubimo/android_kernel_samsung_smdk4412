@@ -5,7 +5,11 @@
 #
 
 OBJS		=
+<<<<<<< HEAD
 plus_sec := $(call as-instr,.arch_extension sec,+sec)
+=======
+
+>>>>>>> parent of 4ad883d... fix compilation with linaro toolchain 4.7.4
 # Ensure that mmcif loader code appears early in the image
 # to minimise that number of bocks that have to be read in
 # order to load it.
@@ -21,12 +25,6 @@ AFLAGS_head.o += -DTEXT_OFFSET=$(TEXT_OFFSET)
 ifeq ($(CONFIG_CRYPTO_FIPS),y)
 AFLAGS_head.o += -DFIPS_KERNEL_RAM_BASE=0x40008000
 endif
-
-
-AFLAGS_head.o += -Wa,-march=armv7-a$(plus_sec)
-AFLAGS_misc.o +=-Wa,-march=armv7-a$(plus_sec)
-AFLAGS_decompress.o += -Wa,-march=armv7-a$(plus_sec)
-
 HEAD	= head.o
 OBJS	+= misc.o decompress.o
 FONTC	= $(srctree)/drivers/video/console/font_acorn_8x8.c
@@ -126,7 +124,6 @@ LDFLAGS_vmlinux += -X
 LDFLAGS_vmlinux += -T
 
 # For __aeabi_uidivmod
-AFLAGS_lib1funcs.o +=-Wa,-march=armv7-a$(plus_sec)
 lib1funcs = $(obj)/lib1funcs.o
 
 $(obj)/lib1funcs.S: $(srctree)/arch/$(SRCARCH)/lib/lib1funcs.S FORCE
@@ -152,8 +149,12 @@ $(obj)/vmlinux: $(obj)/vmlinux.lds $(obj)/$(HEAD) $(obj)/piggy.$(suffix_y).o \
 
 $(obj)/piggy.$(suffix_y): $(obj)/../Image FORCE
 	$(call if_changed,$(suffix_y))
+<<<<<<< HEAD
 	
 AFLAGS_piggy.$(suffix_y).o += -Wa,-march=armv7-a$(plus_sec)
+=======
+
+>>>>>>> parent of 4ad883d... fix compilation with linaro toolchain 4.7.4
 $(obj)/piggy.$(suffix_y).o:  $(obj)/piggy.$(suffix_y) FORCE
 
 CFLAGS_font.o := -Dstatic=
