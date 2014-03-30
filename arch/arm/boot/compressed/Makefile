@@ -5,11 +5,7 @@
 #
 
 OBJS		=
-<<<<<<< HEAD
-plus_sec := $(call as-instr,.arch_extension sec,+sec)
-=======
 
->>>>>>> parent of 4ad883d... fix compilation with linaro toolchain 4.7.4
 # Ensure that mmcif loader code appears early in the image
 # to minimise that number of bocks that have to be read in
 # order to load it.
@@ -149,12 +145,7 @@ $(obj)/vmlinux: $(obj)/vmlinux.lds $(obj)/$(HEAD) $(obj)/piggy.$(suffix_y).o \
 
 $(obj)/piggy.$(suffix_y): $(obj)/../Image FORCE
 	$(call if_changed,$(suffix_y))
-<<<<<<< HEAD
-	
-AFLAGS_piggy.$(suffix_y).o += -Wa,-march=armv7-a$(plus_sec)
-=======
 
->>>>>>> parent of 4ad883d... fix compilation with linaro toolchain 4.7.4
 $(obj)/piggy.$(suffix_y).o:  $(obj)/piggy.$(suffix_y) FORCE
 
 CFLAGS_font.o := -Dstatic=
